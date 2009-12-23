@@ -1,0 +1,47 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 01_kFreeBSD.dpatch by <A.Kral@sh.cvut.cz>
+## 
+## Written by Aurelien Jarno <aurel32@debian.org>
+##
+## DP: FTBFS on GNU/kFreeBSD
+## DP: Bug #336898
+
+@DPATCH@
+diff -urNad gtkguitune-0.8~/main.cc gtkguitune-0.8/main.cc
+--- gtkguitune-0.8~/main.cc
++++ gtkguitune-0.8/main.cc
+@@ -19,12 +19,18 @@
+ //    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ //
+ //
++#include <cstdlib>
+ #include <sys/types.h>
+ #include <sys/stat.h>
+ #include <fcntl.h>
+ #include <unistd.h>
+ #include <sys/ioctl.h>
++#if defined(__linux__)
+ #include <linux/soundcard.h>
++#endif
++#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
++#include <sys/soundcard.h>
++#endif
+
+ #include <gtk/gtk.h>
+ #include <gtkmm/window.h>
+diff -urNad gtkguitune-0.8~/guitune.cc gtkguitune-0.8/guitune.cc
+--- gtkguitune-0.8~/guitune.cc
++++ gtkguitune-0.8/guitune.cc
+@@ -24,7 +24,12 @@
+ #include <sys/stat.h>
+ #include <fcntl.h>
+ #include <sys/ioctl.h>
++#if defined(__linux__)
+ #include <linux/soundcard.h>
++#endif
++#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
++#include <sys/soundcard.h>
++#endif
+
+ #include <gtkmm/main.h>
+ #include <gtkmm/table.h>

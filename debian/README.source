@@ -1,0 +1,6 @@
+This gtkguitune version includes several changes to the original source code.
+You don't need to do anything special for building the package, patches are
+maintained thought dpatch.
+
+Refer to /usr/share/doc/dpatch/README.source.gz for more information about
+dpatch.

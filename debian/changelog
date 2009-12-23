@@ -1,0 +1,89 @@
+gtkguitune (0.8-3) unstable; urgency=low
+
+  * use dpatch for patch management, including FTBFS on GNU/kFreeBSD
+    refer to bug #336898
+  * Included patch by Olivier Robert to support syllables as alternative note
+    names (Closes: #556449)
+  * cleanup of several lintian warnings
+
+ -- Antonin Kral <A.Kral@sh.cvut.cz>  Wed, 23 Dec 2009 08:49:00 +0100
+
+gtkguitune (0.8-2) unstable; urgency=low
+
+  * add oss-compat, related to bug #514659
+
+ -- Antonin Kral <A.Kral@sh.cvut.cz>  Tue, 10 Feb 2009 11:32:45 +0100
+
+gtkguitune (0.8-1) unstable; urgency=low
+
+  * New upstream release (Closes: #509460)
+  * introduced hack into rules to prevent linking against useless libraries
+    introduced by gtkmm pkg-config
+  * fixed lintian warning debian-rules-ignores-make-clean-error
+  * fixed lintian warning copyright-without-copyright-notice
+  * fixed lintian warning
+
+ -- Antonin Kral <A.Kral@sh.cvut.cz>  Sun, 08 Feb 2009 14:13:03 +0100
+
+gtkguitune (0.7-7.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Fix FTBFS with GCC 4.3 (Closes: #417220).
+
+ -- Luk Claes <luk@debian.org>  Sun, 09 Mar 2008 15:12:12 +0000
+
+gtkguitune (0.7-7) unstable; urgency=low
+
+  * recompile against libgtkmm1.2-0c2a. Closes: #356282
+  * updated postal address of the Free Software Foundation (FSF)
+
+ -- Antonin Kral <A.Kral@sh.cvut.cz>  Sat, 11 Mar 2006 16:27:33 +0100
+
+gtkguitune (0.7-6) unstable; urgency=low
+
+  * acknowleadgement of NMU, many thanks to Matej
+  * Closes: #342533
+  * Closes: #336898
+
+ -- Antonin Kral <A.Kral@sh.cvut.cz>  Wed,  1 Mar 2006 09:57:47 +0100
+
+gtkguitune (0.7-5.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Recompile against libgtkmm1.2-0c2a.  Closes: #342533.
+  * Port to GNU/kFreeBSD; thanks to Aurelien Jarno for the patch.
+    Closes: #336898.
+  * debian/gtkguitune.1x: Fix groff warnings by using named characters.
+
+ -- Matej Vela <vela@debian.org>  Sat, 28 Jan 2006 13:28:11 +0100
+
+gtkguitune (0.7-5) unstable; urgency=low
+
+  * recompiled against libsigc++0c2, Closes #317930
+
+ -- Antonin Kral <A.Kral@sh.cvut.cz>  Sun, 31 Jul 2005 08:56:07 +0200
+
+gtkguitune (0.7-4) unstable; urgency=low
+
+  * Changed menu to follow "quotation" policy
+
+ -- Antonin Kral <A.Kral@sh.cvut.cz>  Tue, 10 Aug 2004 11:14:07 +0200
+
+gtkguitune (0.7-3) unstable; urgency=low
+
+  * Moved from Apps/Tools to Apps/Sound (Closes #227983)
+
+ -- Antonin Kral <A.Kral@sh.cvut.cz>  Thu, 22 Jan 2004 18:49:09 +0100
+
+gtkguitune (0.7-2) unstable; urgency=low
+
+  * Added more build-deps
+
+ -- Antonin Kral <A.Kral@sh.cvut.cz>  Wed, 17 Sep 2003 08:59:10 +0200
+
+gtkguitune (0.7-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Antonin Kral <A.Kral@sh.cvut.cz>  Sat,  6 Sep 2003 17:25:38 +0200
+

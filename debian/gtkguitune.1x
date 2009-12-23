@@ -1,0 +1,25 @@
+.TH WMKBD 1 "September 06, 2003"
+.SH NAME
+gtkguitune - KGuitune
+.SH SYNOPSIS
+.B gtkguitune
+.br
+.SH DESCRIPTION
+This manual page documents briefly the
+.B gtkguitune
+program.
+This manual page was written for the Debian GNU/Linux distribution
+because the original program does not have a manual page.
+.PP
+Guitune is a linux program for tuning guitars and other instruments by using the method of Schmitt-triggering, i.e. counting the number of triggerings between two trigger levels in a certain amount of time. 
+
+With FFT you need many samples to archieve the accuracy needed for tuning instruments. You often get times of around 1 second between two measurements and the computer is quite busy in this second calculating the FFT. Using Schmitt-triggering you get a measurement every 10th of a second or even less (depending on the sample frequency you use). Most of the time the computer only waits for the samples.
+
+The Trigger levels are adjustable. For a pure sine-wave the trigger levels could be zero. But for a wave wth overtones like the one in the figure above you need a non-zero triggerlevel. It is preadjusted to a level of 60% of the current maximum which should be able to deal with most instruments.
+.SH SEE ALSO
+.TP
+.BR http://www.geocities.com/harpin_floh/kguitune_page.html
+Project web page.
+.SH AUTHOR
+This manual page was written by Anton\['i]n Kr\['a]l <A.Kral@sh.cvut.cz>,
+for the Debian GNU/Linux system (but may be used by others).

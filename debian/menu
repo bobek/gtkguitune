@@ -1,0 +1,4 @@
+?package(gtkguitune):needs="X11"\
+  section="Applications/Sound"\
+  title="gtkGuitune"\
+  command="gtkguitune"
