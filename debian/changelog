@@ -1,17 +1,10 @@
-gtkguitune (0.8-4~3.gbpc7bd29) UNRELEASED; urgency=low
+gtkguitune (0.8-4) unstable; urgency=low
 
-  ** SNAPSHOT build @c7bd297722d355b1805a69bd6f6712be4859b11d **
+  * switched patch management to gbp-pq and quilt
+  * FTBFS on hurd-i386 (Closes: #637549)
+  * fixed various lintian warnings
 
-  * [76862dd] prepare paches for gbp-pq
-  * [55bead4] debhelper-but-no-misc-depends + standards
-  * [4659ab7] switch to gbp-pq FTBFS on hurd-i386 (Closes: #637549)
-  * [c6209e8] removed dpatch
-  * [5af7c94] added regenerated patches
-  * [98710f3] added quilt
-  * [0b857e3] added recommended targets
-  * [25f9b13] removed unnecessary files
-
- -- Antonin Kral <A.Kral@sh.cvut.cz>  Wed, 17 Aug 2011 11:30:42 +0200
+ -- Antonin Kral <A.Kral@sh.cvut.cz>  Wed, 17 Aug 2011 11:37:21 +0200
 
 gtkguitune (0.8-3) unstable; urgency=low
 
