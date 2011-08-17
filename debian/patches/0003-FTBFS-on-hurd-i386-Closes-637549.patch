@@ -1,0 +1,36 @@
+From: Samuel Thibault <sthibault@debian.org>
+Date: Wed, 17 Aug 2011 10:46:59 +0200
+Subject: FTBFS on hurd-i386 (Closes #637549)
+
+---
+ guitune.cc |    2 +-
+ main.cc    |    2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/guitune.cc b/guitune.cc
+index f4f793d..0c6c191 100644
+--- a/guitune.cc
++++ b/guitune.cc
+@@ -27,7 +27,7 @@
+ #if defined(__linux__)
+ #include <linux/soundcard.h>
+ #endif
+-#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
++#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__) || defined(__GNU__)
+ #include <sys/soundcard.h>
+ #endif
+ 
+diff --git a/main.cc b/main.cc
+index 21a16eb..fbbe961 100644
+--- a/main.cc
++++ b/main.cc
+@@ -28,7 +28,7 @@
+ #if defined(__linux__)
+ #include <linux/soundcard.h>
+ #endif
+-#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
++#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__) || defined(__GNU__)
+ #include <sys/soundcard.h>
+ #endif
+ 
+-- 
