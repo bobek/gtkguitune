@@ -59,6 +59,8 @@ clean:
 	[ ! -f Makefile ] || $(MAKE) distclean
 	rm -f config.guess
 	rm -f config.sub
+	rm -f config.status
+	rm -f config.cache
 
 	dh_clean
 
