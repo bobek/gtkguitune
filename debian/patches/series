@@ -1,2 +1,3 @@
-0001-kFreeBSD.patch
-0002-syllables.patch
+0001-FTBFS-on-GNU-kFreeBSD-bug-336898.patch
+0002-Naming-notes-with-syllables-Bug-556449.patch
+0003-FTBFS-on-hurd-i386-Closes-637549.patch
