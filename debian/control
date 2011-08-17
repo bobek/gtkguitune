@@ -4,6 +4,8 @@ Priority: optional
 Maintainer: Antonin Kral <A.Kral@sh.cvut.cz>
 Build-Depends: debhelper (>> 7.0.0), libgtkmm-2.4-dev, libgtk2.0-dev, autotools-dev, quilt
 Standards-Version: 3.9.2
+Vcs-Git: git://github.com/bobek/gtkguitune.git
+Vcs-Browser: https://github.com/bobek/gtkguitune
 
 Package: gtkguitune
 Architecture: any
