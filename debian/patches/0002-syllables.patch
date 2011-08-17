@@ -1,16 +1,21 @@
-#! /bin/sh /usr/share/dpatch/dpatch-run
-## 00_syllables.dpatch by  <A.Kral@sh.cvut.cz>
-## 
-## Written by Olivier Robert <poutifar@gmx.com>
-##
-## DP: This patch implements naming of note by syllables. 
-## DP: Bug #556449
+From: Olivier Robert <poutifar@gmx.com>
+Date: Wed, 23 Dec 2009 08:49:00 +0100
+Subject: Naming notes with syllables (Bug #556449)
 
 @DPATCH@
-diff -urNad gtkguitune-0.8~/guitune.cc gtkguitune-0.8/guitune.cc
---- gtkguitune-0.8~/guitune.cc	2009-12-23 08:43:02.000000000 +0100
-+++ gtkguitune-0.8/guitune.cc	2009-12-23 08:45:08.500730683 +0100
-@@ -108,8 +108,14 @@
+---
+ guitune.cc |   10 ++++++++--
+ guitune.h  |    2 ++
+ logview.cc |    8 ++++++++
+ logview.h  |    9 ++++++++-
+ main.cc    |    5 ++++-
+ 5 files changed, 30 insertions(+), 4 deletions(-)
+
+diff --git a/guitune.cc b/guitune.cc
+index fd188d8..f4f793d 100644
+--- a/guitune.cc
++++ b/guitune.cc
+@@ -108,8 +108,14 @@ void MainWidget::setScaleGEAlt()
  {
      logview->setScale(LogView::german_scale_alt);
  }
@@ -24,13 +29,14 @@ diff -urNad gtkguitune-0.8~/guitune.cc gtkguitune-0.8/guitune.cc
 +{
 +    logview->setScale(LogView::syllables_scale_alt);
 +}
- 
+
  void MainWidget::showLogView()
  {
-diff -urNad gtkguitune-0.8~/guitune.h gtkguitune-0.8/guitune.h
---- gtkguitune-0.8~/guitune.h	2008-09-16 11:56:09.000000000 +0200
-+++ gtkguitune-0.8/guitune.h	2009-12-23 08:45:08.500730683 +0100
-@@ -57,6 +57,8 @@
+diff --git a/guitune.h b/guitune.h
+index 51067d4..77f4dc9 100644
+--- a/guitune.h
++++ b/guitune.h
+@@ -57,6 +57,8 @@ class MainWidget : public Gtk::Table
     void setScaleUSAlt();
     void setScaleGE();
     void setScaleGEAlt();
@@ -39,21 +45,22 @@ diff -urNad gtkguitune-0.8~/guitune.h gtkguitune-0.8/guitune.h
     void showOszi();
     void hideOszi();
     void showLogView();
-diff -urNad gtkguitune-0.8~/logview.cc gtkguitune-0.8/logview.cc
---- gtkguitune-0.8~/logview.cc	2008-09-16 11:56:09.000000000 +0200
-+++ gtkguitune-0.8/logview.cc	2009-12-23 08:45:08.500730683 +0100
+diff --git a/logview.cc b/logview.cc
+index 3dd2682..063f1cd 100644
+--- a/logview.cc
++++ b/logview.cc
 @@ -33,8 +33,10 @@
- 
+
  const char *note_ger[12] = {"A","B", "H","C","Db","D","Eb","E","F","Gb","G","Ab"};
  const char *note_us[12] =  {"A","Bb","B","C","Db","D","Eb","E","F","Gb","G","Ab"};
 +const char *note_sy[12] =  {"LA","SIb","SI","DO","REb","RE","MIb","MI","FA","SOLb","SOL","LAb"};
  const char *note_ger_alt[12] = {"A","B", "H","C","C#","D","D#","E","F","F#","G","G#"};
  const char *note_us_alt[12] =  {"A","A#","B","C","C#","D","D#","E","F","F#","G","G#"};
 +const char *note_sy_alt[12] =  {"LA","LA#","SI","DO","DO#","RE","RE#","MI","FA","FA#","SOL","SOL#"};
- 
+
  const char **note;
- 
-@@ -142,12 +144,18 @@
+
+@@ -142,12 +144,18 @@ void LogView::setScale(int scale)
      case german_scale:
          note=note_ger;
          break;
@@ -72,13 +79,14 @@ diff -urNad gtkguitune-0.8~/logview.cc gtkguitune-0.8/logview.cc
      }
      invalidate();
  }
-diff -urNad gtkguitune-0.8~/logview.h gtkguitune-0.8/logview.h
---- gtkguitune-0.8~/logview.h	2008-09-16 11:56:09.000000000 +0200
-+++ gtkguitune-0.8/logview.h	2009-12-23 08:45:08.500730683 +0100
-@@ -36,7 +36,14 @@
+diff --git a/logview.h b/logview.h
+index 12e9653..63d7fbe 100644
+--- a/logview.h
++++ b/logview.h
+@@ -36,7 +36,14 @@ public:
      LogView();
      ~LogView();
- 
+
 -    enum {us_scale,us_scale_alt,german_scale,german_scale_alt};
 +    enum {
 +          us_scale,
@@ -88,13 +96,14 @@ diff -urNad gtkguitune-0.8~/logview.h gtkguitune-0.8/logview.h
 +          syllables_scale,
 +          syllables_scale_alt
 +         };
- 
+
      int  lfreq_pos(double lfreq);
      int  pos_note(int pos);
-diff -urNad gtkguitune-0.8~/main.cc gtkguitune-0.8/main.cc
---- gtkguitune-0.8~/main.cc	2009-12-23 08:43:02.000000000 +0100
-+++ gtkguitune-0.8/main.cc	2009-12-23 08:45:08.500730683 +0100
-@@ -330,7 +330,10 @@
+diff --git a/main.cc b/main.cc
+index a46ce01..21a16eb 100644
+--- a/main.cc
++++ b/main.cc
+@@ -330,7 +330,10 @@ int main(int argc, char *argv[])
                     sigc::mem_fun(&m_wid, &MainWidget::setScaleGE) ));
          list_scale.push_back(RadioMenuElem( gr1,"G_erman-Alt",
                     sigc::mem_fun(&m_wid, &MainWidget::setScaleGEAlt) ));
@@ -103,6 +112,7 @@ diff -urNad gtkguitune-0.8~/main.cc gtkguitune-0.8/main.cc
 +                   sigc::mem_fun(&m_wid, &MainWidget::setScaleSY) ));
 +        list_scale.push_back(RadioMenuElem( gr1,"S_yllables-Alt",
 +                   sigc::mem_fun(&m_wid, &MainWidget::setScaleSYAlt) ));
- 
+
          // submenu Input Channel
          menu_input_rec = manage( new Menu() );
+--
