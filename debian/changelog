@@ -1,3 +1,9 @@
+gtkguitune (0.8-5) unstable; urgency=low
+
+  * set source format to 3.0 (Closes: #638292)
+
+ -- Antonin Kral <A.Kral@sh.cvut.cz>  Thu, 18 Aug 2011 20:47:28 +0200
+
 gtkguitune (0.8-4) unstable; urgency=low
 
   * switched patch management to gbp-pq and quilt
