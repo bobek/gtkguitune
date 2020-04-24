@@ -2,6 +2,7 @@ gtkguitune (0.8-6) UNRELEASED; urgency=medium
 
   * Trim trailing whitespace.
   * Bump debhelper from deprecated 7 to 10.
+  * Use secure URI in Vcs control header Vcs-Git.
 
  -- Debian Janitor <janitor@jelmer.uk>  Fri, 24 Apr 2020 08:04:01 +0000
 
