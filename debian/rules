@@ -7,8 +7,7 @@
 
 # These are used for cross-compiling and for saving the configure script
 # from having to guess our platform (since we know it already)
-DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
-DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
+include /usr/share/dpkg/architecture.mk
 
 
 libs_to_filter = -lcairomm-1.0 -latk-1.0 -ldl -lgdk_pixbuf -lpango-1.0 -lcairo -lpangocairo-1.0 -lgdk_pixbuf-2.0 -lgmodule-2.0
